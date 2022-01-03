@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="BusReviewCRUD.MVVM.View.BusesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BusReviewCRUD.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="720" Background="#1B1B1B">
+    <Grid>
+
+        <DataGrid x:Name="dgBuses" HorizontalAlignment="Left" Height="407" Margin="10,16,0,0" VerticalAlignment="Top" Width="214"
+                  xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit" CanUserAddRows="True"
+                  ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Placa" Binding="{Binding Path=Placa}"/>
+                <DataGridTextColumn Header="Coperativa" Binding="{Binding Path=Cooperativa}"/>
+                <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnEditarBus">Editar</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Eliminar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnEliminarBus">Eliminar</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Placa :" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="233,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.881,0.678"/>
+        <Label Content="Marca :" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="452,16,0,0" VerticalAlignment="Top"/>
+        <Label Content="Chofer :" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="233,61,0,0" VerticalAlignment="Top"/>
+        <Label Content="Asistente :" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="233,131,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.393,0.513"/>
+        <Label Content="Cooperativa :" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="233,222,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.393,0.513"/>
+
+        <TextBox x:Name="txtPlaca" HorizontalAlignment="Left" Margin="285,16,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+        <TextBox x:Name="txtCooperativa" HorizontalAlignment="Left" Margin="335,222,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+        <TextBox x:Name="txtMarca" HorizontalAlignment="Left" Margin="510,16,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+        <TextBox x:Name="txtNombreC" HorizontalAlignment="Left" Margin="229,96,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}" RenderTransformOrigin="0.032,-0.111"/>
+        <TextBox x:Name="txtCorreoC" HorizontalAlignment="Left" Margin="386,96,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+        <TextBox x:Name="txtCedulaC" HorizontalAlignment="Left" Margin="543,96,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+        <TextBox x:Name="txtNombreA" HorizontalAlignment="Left" Margin="229,166,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}" RenderTransformOrigin="0.032,-0.111"/>
+        <TextBox x:Name="txtCorreoA" HorizontalAlignment="Left" Margin="386,166,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+        <TextBox x:Name="txtCedulaA" HorizontalAlignment="Left" Margin="543,166,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+
+        <CheckBox x:Name="cbWifi" Content="WIFI" Foreground="White" FontSize="15" HorizontalAlignment="Left" 
+                  Margin="252,274,0,0" VerticalAlignment="Top" Height="30" Width="59" RenderTransformOrigin="0.641,0.931"/>
+        <CheckBox x:Name="cbTv" Content="TV" Foreground="White" FontSize="15" HorizontalAlignment="Left" 
+                  Margin="316,274,0,0" VerticalAlignment="Top" Height="30" Width="51" RenderTransformOrigin="0.641,0.931"/>
+        <CheckBox x:Name="cbBano" Content="Baño" Foreground="White" FontSize="15" HorizontalAlignment="Left" 
+                  Margin="372,274,0,0" VerticalAlignment="Top" Height="30" Width="78" RenderTransformOrigin="0.641,0.931"/>
+        <CheckBox x:Name="cbAsientos" Content="Asientos para discapacitados" Foreground="White" FontSize="15" HorizontalAlignment="Left" 
+                  Margin="455,274,0,0" VerticalAlignment="Top" Height="30" Width="218" RenderTransformOrigin="0.641,0.931"/>
+
+        <Button x:Name="btnGuardarBus" Content="Guardar Bus" HorizontalAlignment="Left"
+                Margin="493,337,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.495,0.578" 
+                Height="25" Click="btnGuardarBus_Click"/>
+        <Button x:Name="btnCargarBus" HorizontalAlignment="Left" Content="Cargar Buses"
+                Margin="307,337,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.495,0.578" 
+                Height="25" Click="btnCargarBus_Click"/>
+    </Grid>
+</UserControl>

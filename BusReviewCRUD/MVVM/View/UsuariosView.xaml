@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="BusReviewCRUD.MVVM.View.UsuariosView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BusReviewCRUD.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="720" Background="#1B1B1B">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="103*"/>
+            <ColumnDefinition Width="617*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="lblName" Content="Nombre :" HorizontalAlignment="Left" Margin="46,20,0,0"
+               VerticalAlignment="Top" Foreground="White" FontSize="15" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblApellido" Content="Apellido :" HorizontalAlignment="Left" Margin="46,60,0,0"
+               VerticalAlignment="Top" Foreground="White" FontSize="15" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblCorreo" Content="Correo :" HorizontalAlignment="Left" Margin="46,100,0,0"
+               VerticalAlignment="Top" Foreground="White" FontSize="15" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblCotrasenia" Content="Contraseña :" HorizontalAlignment="Left" Margin="193.462,20,0,0"
+               VerticalAlignment="Top" Foreground="White" FontSize="15" Grid.Column="1"/>
+        <Label x:Name="lblFecha" Content="Fecha de Nacimiento :" HorizontalAlignment="Left" Margin="193.462,60,0,0"
+               VerticalAlignment="Top" Foreground="White" FontSize="15" Grid.Column="1"/>
+
+
+        <TextBox x:Name="txtId" HorizontalAlignment="Left" Margin="15.462,20,0,0" Text="0"
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Visibility="Hidden" Grid.Column="1" />
+
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="15.462,20,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Style="{StaticResource ModernTextBox}" Grid.Column="1"/>
+        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Margin="19.462,60,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}" Grid.Column="1"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Margin="20.462,100,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Style="{StaticResource ModernTextBox}" Grid.Column="1"/>
+        <TextBox x:Name="txtContrasenia" HorizontalAlignment="Left" Margin="285.462,20,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Style="{StaticResource ModernTextBox}" Grid.Column="1"/>
+        <DatePicker x:Name="dpFecha" HorizontalAlignment="Left" Margin="355.462,64,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+
+        <CheckBox x:Name="cbAdmin" Content="Administrador" Foreground="White" FontSize="15" Grid.Column="1" HorizontalAlignment="Left" 
+                  Margin="216,106,0,0" VerticalAlignment="Top" Height="30" Width="134" RenderTransformOrigin="0.641,0.931"/>
+
+        <Button x:Name="btnGuardarUsuario" Content="Guardar Usuario" HorizontalAlignment="Left"
+                Margin="30,148,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.495,0.578" 
+                Height="25" Click="btnGuardarUsuario_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnCargarUsuario" HorizontalAlignment="Left" Content="Cargar Usuarios"
+                Margin="30,188,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.495,0.578" 
+                Height="25" Click="btnCargarUsuario_Click" Grid.ColumnSpan="2"/>
+
+        <DataGrid x:Name="dgUsuarios" HorizontalAlignment="Left" Height="292" Margin="58,148,0,0" VerticalAlignment="Top" Width="525" Grid.Column="1"
+                  xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit" CanUserAddRows="True"
+                  ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=UsuarioId}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Path=Nombre}"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Path=Apellido}"/>
+                <DataGridTextColumn Header="Correo" Binding="{Binding Path=Correo}"/>
+                <DataGridTextColumn Header="Fecha de Nacimiento" Binding="{Binding Path=Fecha_Nacimiento}"/>
+                <DataGridTextColumn Header="Contraseña" Binding="{Binding Path=Contrasenia}"/>
+                <DataGridTextColumn Header="Admin" Binding="{Binding Path=Administrador}"/>
+                <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnEditarUsuario">Editar</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Eliminar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnEliminarUsuario">Eliminar</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+    </Grid>
+</UserControl>

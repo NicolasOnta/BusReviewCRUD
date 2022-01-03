@@ -1,0 +1,41 @@
+﻿<Application x:Class="BusReviewCRUD.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:BusReviewCRUD"
+             xmlns:viewModel="clr-namespace:BusReviewCRUD.MVVM.ViewModel"
+             xmlns:view="clr-namespace:BusReviewCRUD.MVVM.View"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:MenuViewModel}">
+                <view:MenuView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:BusesViewModel}">
+                <view:BusesView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ParadasViewModel}">
+                <view:ParadasView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ReportesViewModel}">
+                <view:ReportesView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModel:ReseniasViewModel}">
+                <view:ReseniasView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModel:UsuariosViewModel}">
+                <view:UsuariosView/>
+            </DataTemplate>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

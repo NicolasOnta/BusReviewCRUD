@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="BusReviewCRUD.MVVM.View.ReseniasView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BusReviewCRUD.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="720" Background="#1B1B1B">
+    <Grid>
+        <Button x:Name="btnCargarResena" Click="btnCargarResena_Click" Content="Cargar Reseñas" HorizontalAlignment="Left" Margin="332,342,0,0" 
+                VerticalAlignment="Top" Width="102" Height="36" />
+        <Button x:Name="btnEliminarResena" Content="Eliminar Reseña" Click="btnEliminarResena_Click" Margin="522,342,0,0"  
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="102" Height="36"/>
+
+        <Label Content="Placa :" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="292,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.881,0.678"/>
+        <Label Content="Usuario :" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="297,161,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.881,0.678"/>
+        <Label Content="Calificacion :" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="292,115,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.881,0.678"/>
+        <Label Content="Nota :" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="297,248,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.881,0.678"/>
+
+        <TextBox x:Name="txtIdResena" HorizontalAlignment="Left" Margin="15.462,20,0,0" Text="0"
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Visibility="Hidden" Grid.Column="1" />
+        <TextBox x:Name="txtPlaca" HorizontalAlignment="Left" Margin="349,66,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+        <TextBox x:Name="txtCalf" HorizontalAlignment="Left" Margin="389,115,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+        <TextBox x:Name="txtNota" HorizontalAlignment="Left" Margin="365,221,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="272" Height="93" />
+        <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Margin="370,161,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+
+        <DataGrid x:Name="dgResena" HorizontalAlignment="Left" Height="392" Margin="25,20,0,0" VerticalAlignment="Top" Width="241"
+                  xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit" CanUserAddRows="True"
+                  ItemsSource="{Binding}" AutoGenerateColumns="False">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=ResenaId}"/>
+                <DataGridTextColumn Header="Usuario" Binding="{Binding Path=IdUsuario}"/>
+                <DataGridTextColumn Header="Calificacion" Binding="{Binding Path=Calificacion}"/>
+                <DataGridTemplateColumn Header="Ver">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnVerResena">Ver</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

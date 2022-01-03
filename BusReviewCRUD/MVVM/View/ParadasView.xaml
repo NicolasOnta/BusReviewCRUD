@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="BusReviewCRUD.MVVM.View.ParadasView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BusReviewCRUD.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="720" Background="#1B1B1B">
+    <Grid>
+        <DataGrid x:Name="dgParada" HorizontalAlignment="Left" Height="397" Margin="10,20,0,0" VerticalAlignment="Top" Width="251"
+                  xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit" CanUserAddRows="True"
+                  ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=ParadaId}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Path=Nombres}"/>
+                <DataGridTextColumn Header="Sector" Binding="{Binding Path=Sector}"/>
+                <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnEditarParada">Editar</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Eliminar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnEliminarParada">Eliminar</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBox x:Name="txtIdParada" HorizontalAlignment="Left" Margin="15.462,20,0,0" Text="0"
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Visibility="Hidden" Grid.Column="1" />
+        <Label Content="Nombre :" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="292,43,0,0" VerticalAlignment="Top" />
+        <Label Content="Sector :" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="292,89,0,0" VerticalAlignment="Top" />
+        <Label Content="Costo :" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="295,135,0,0" VerticalAlignment="Top"/>
+        <Label Content="Bus :" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="295,187,0,0" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="380,43,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+        <TextBox x:Name="txtSector" HorizontalAlignment="Left" Margin="380,89,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+        <TextBox x:Name="txtCosto" HorizontalAlignment="Left" Margin="380,135,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+        <TextBox x:Name="txtBus" HorizontalAlignment="Left" Margin="380,187,0,0" Text=""
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Style="{StaticResource ModernTextBox}"/>
+
+        <Button x:Name="btnGuardarParada" Content="Guardar Parada" HorizontalAlignment="Left"
+                Margin="493,337,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.495,0.578" 
+                Height="25" Click="btnGuardarParada_Click"/>
+        <Button x:Name="btnCargarParada" HorizontalAlignment="Left" Content="Cargar Paradas"
+                Margin="307,337,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.495,0.578" 
+                Height="25" Click="btnCargarParada_Click"/>
+    </Grid>
+</UserControl>
